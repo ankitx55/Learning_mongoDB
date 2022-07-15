@@ -1,0 +1,23 @@
+{
+  "name": "learning_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitx55/Learning_mongoDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankitx55/Learning_mongoDB/issues"
+  },
+  "homepage": "https://github.com/ankitx55/Learning_mongoDB#readme",
+  "dependencies": {
+    "mongoose": "^6.4.4"
+  }
+}
