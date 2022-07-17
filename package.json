@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ankitx55/Learning_mongoDB#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
     "mongoose": "^6.4.4"
   }
 }
