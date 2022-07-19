@@ -3,8 +3,9 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 
-mongoose
-  .connect("mongodb://localhost:27017/moviesApp")
+const Product = require('./models/product');
+
+mongoose.connect("mongodb://localhost:27017/productName")
   .then(() => {
     console.log("mongo connection open");
   })

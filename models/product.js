@@ -7,14 +7,15 @@ const productSchema = new mongoose.Schema({
     },
     price:{
         type:Number,
-        required:true
+        required:true,
         min:0
     }  ,
     category:{
         type: String,
-    enum: ['fruit', 'dairy']
+        lowercase:true,
+        enum: ['fruit', 'vegetable','dairy']
     }
 
 })
 const Product = mongoose.model('Product', productSchema);
-modeule.export 
+module.export = Product;
