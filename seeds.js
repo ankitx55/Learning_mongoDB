@@ -16,3 +16,12 @@ const p = new Product({
     price: 1.99,
     category: 'fruit'
 })
+
+
+p.save()
+.then(p=>{
+  console.log(p)
+})
+.catch(e=>{
+  console.log(e)
+})

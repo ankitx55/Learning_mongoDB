@@ -9,13 +9,13 @@ const productSchema = new mongoose.Schema({
         type:Number,
         required:true,
         min:0
-    }  ,
+    },
     category:{
         type: String,
         lowercase:true,
-        enum: ['fruit', 'vegetable','dairy']
+        enum: ['fruit', 'vegetables','dairy']
     }
 
 })
 const Product = mongoose.model('Product', productSchema);
-module.export = Product;
+module.exports = Product;
