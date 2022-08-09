@@ -17,18 +17,21 @@ mongoose.connect("mongodb://localhost:27017/farmStand")
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// app.get('/dogs', (req, res) => {
+// app.get('/dogs', ( req, res) => {
 //   res.send("working fine on dogs");
 //   console.log("on dogs");
 // });
 
 
 app.get('/product', async(req, res) => {
-  const product = await Product.find({})
-  // console.log(product)
-  // res.send('all pproducts will be here')
-  res.render('products/index.ejs')
-  console.log('new files ')
+  const products = await Product.find({})
+  // console.log(products)
+  // res.send('all products will be here')
+
+  res.render('products/index',{products})
+
+  // res.render('products/index.ejs')
+  // console.log('new files ')
 })
 
 app.listen(3000, () => {
