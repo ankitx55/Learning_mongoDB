@@ -54,7 +54,7 @@ app.get('/products/new', (req,res) => {
 
 app.post('/products', async (req, res)=>{
   // console.log(req.body)
-  const newProduct = new Product(req.body)
+  const newProduct = new Product(req.body);
   await newProduct.save();
   res.redirect(`/products/${newProduct._id}`)
 })
