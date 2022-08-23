@@ -21,9 +21,6 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 
-
-
-
 const categories = ['fruit', 'vegetable', 'dairy'];
 // app.get('/dogs', ( req, res) => {
 //   res.send("working fine on dogs");
@@ -33,7 +30,7 @@ const categories = ['fruit', 'vegetable', 'dairy'];
 
 
 
-
+// ******indexing of all products
 
 app.get('/products', async(req, res) => {
   const products = await Product.find({})
@@ -52,10 +49,10 @@ app.get('/products', async(req, res) => {
 
 
 
-
+// *******creating new products
 
 app.get('/products/new', (req,res) => {
-  res.render('products/new')
+  res.render('products/new', {categories})
 })
 
 app.post('/products', async (req, res)=>{
@@ -76,7 +73,7 @@ app.post('/products', async (req, res)=>{
 
 
 
-
+// ***********showing the specific product
 
 app.get('/products/:id',async(req,res)=>{
   const {id} = req.params;
@@ -87,13 +84,13 @@ app.get('/products/:id',async(req,res)=>{
 })
 
 
-/*Edit page*/ 
+// ***************editing the product
 app.get('/products/:id/edit', async(req,res) =>{
   const {id} = req.params;
   const product = await Product.findById(id);
   res.render('products/edit', {product})
 })
-
+// **************updating the product
 app.put('/products/:id', async(req,res)=>{
   const {id} = req.params;
   const  product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new:true})
