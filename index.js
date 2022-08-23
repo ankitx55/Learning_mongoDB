@@ -105,7 +105,7 @@ app.delete('/products/:id', async(req, res) =>{
   // res.send('deleted')
   const {id} = req.params;
   const deletedProduct = await Product.findByIdAndDelete(id)
-  res.redirect('/products')
+  res.redirect('/products'); 
 })
 
 
