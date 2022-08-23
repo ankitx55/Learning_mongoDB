@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 
-const categories = ['fruit', 'vegetable', 'dairy'];
+const categories = ['fruit', 'vegetables', 'dairy', 'new prodct'];
 // app.get('/dogs', ( req, res) => {
 //   res.send("working fine on dogs");
 //   console.log("on dogs");
@@ -88,7 +88,7 @@ app.get('/products/:id',async(req,res)=>{
 app.get('/products/:id/edit', async(req,res) =>{
   const {id} = req.params;
   const product = await Product.findById(id);
-  res.render('products/edit', {product})
+  res.render('products/edit', {product, categories})
 })
 // **************updating the product
 app.put('/products/:id', async(req,res)=>{
@@ -97,6 +97,17 @@ app.put('/products/:id', async(req,res)=>{
   res.redirect(`/products/${product._id}`);
   console.log(req.body);
 })
+
+
+
+// ******************Delete a product
+app.delete('/products/:id', async(req, res) =>{
+  // res.send('deleted')
+  const {id} = req.params;
+  const deletedProduct = await Product.findByIdAndDelete(id)
+  res.redirect('/products')
+})
+
 
 
 
